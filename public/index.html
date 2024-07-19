@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Your App</h2>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Menu Item 1</a></li>
+                <li><a href="#">Menu Item 2</a></li>
+                <li><a href="#">Menu Item 3</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="header">
+            <h1>Dashboard</h1>
+        </header>
+        <section class="content">
+            <p>Welcome to Your App!</p>
+            <!-- Public Roadmap Button -->
+            <button id="public-roadmap">Public Roadmap</button>
+        </section>
+    </main>
+</div>
+<script>
+    document.getElementById('public-roadmap').addEventListener('click', function() {
+        fetch('http://localhost:3000/api/token')
+            .then(response => response.json())
+            .then(data => {
+                const token = data.token;
+                const roadmapUrl = `https://sso-demo.prodcamp.com/changelog?token=${token}`;
+                window.location.href = roadmapUrl;
+            })
+            .catch(error => {
+                console.error('Error fetching token:', error);
+            });
+    });
+</script>
+</body>
+</html>

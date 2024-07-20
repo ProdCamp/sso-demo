@@ -38,4 +38,7 @@ Frontend (index.html): The frontend fetches the token from the backend API and r
 ## Customizing for Your Workspace
 To use your own roadmap, retrieve your Workspace ID and Workspace Secret from the ProdCamp settings (only the workspace owner can see the Secret key).
 
-Replace the placeholders in the code with your actual Workspace ID and Secret Key.
+**Replace the following to test on your environment:**
+1. Workspace ID (app.js:10)
+2. Secret Key (app.js:9)
+3. Public portal URL (public/index.html:40)
